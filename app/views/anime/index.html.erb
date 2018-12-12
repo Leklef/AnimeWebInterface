@@ -1,0 +1,30 @@
+<h1>Anime List</h1>
+
+<%= form_with(url: "/anime", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<table>
+  <thead>
+  <tr>
+
+    <th>Title</th>
+    <th>Description</th>
+    <th>Image</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @animes.each do |anime| %>
+    <tr>
+      <td><%= anime.title %></td>
+      <td><%= anime.synopsis %></td>
+      <td><img src="<%= anime.cover_image %>" height="182" width="120"></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
